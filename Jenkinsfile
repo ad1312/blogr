@@ -9,16 +9,10 @@ pipeline {
     stage('Build') {
       steps {
         sh '''pwd
-pip install wheel
+pip install wheel pytest coverage
 cd blogr
-python3.7 setup.py bdist_wheel'''
-      }
-    }
-
-    stage('Test') {
-      steps {
-        sh '''pipenv --python python3.7
-pip install pytest coverage --user
+python3.7 setup.py bdist_wheel
+cd ..
 pytest'''
       }
     }
