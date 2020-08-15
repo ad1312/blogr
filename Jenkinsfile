@@ -1,14 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('PWD') {
       steps {
-        script {
-          pip install wheel
-          cd blogr
-          python setup.py bdist_wheel
-        }
-
+        sh 'pwd'
       }
     }
 
