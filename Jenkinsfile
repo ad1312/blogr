@@ -17,7 +17,7 @@ python3.7 setup.py bdist_wheel'''
 
     stage('Test') {
       steps {
-        sh '''pip install pytest coverage
+        sh '''pip install pytest coverage --user
 pytest'''
       }
     }
