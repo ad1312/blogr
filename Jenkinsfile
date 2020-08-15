@@ -1,12 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'python:3.7.2'
+    }
+
+  }
   stages {
     stage('Build') {
       steps {
-        sh '''sudo pip3.7 install --upgrade pip
-pip install wheel
-cd blogr
-python3.7 setup.py bdist_wheel'''
+        script {
+          pip install wheel
+          cd blogr
+          python setup.py bdist_wheel
+        }
+
       }
     }
 
