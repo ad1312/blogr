@@ -8,11 +8,8 @@ pipeline {
   stages {
     stage('PWD') {
       steps {
-        sh 'pwd'
-        script {
-          pip install wheel
-        }
-
+        sh '''pwd
+pip install wheel'''
       }
     }
 
