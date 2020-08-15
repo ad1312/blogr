@@ -9,7 +9,10 @@ pipeline {
     stage('PWD') {
       steps {
         sh '''pwd
-pip install wheel'''
+pip install --upgrade pip
+pip install wheel
+cd blogr
+python3.7 setup.py bdist_wheel'''
       }
     }
 
